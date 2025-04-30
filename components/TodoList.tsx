@@ -14,10 +14,10 @@ export default function TodoList() {
     queryKey: ['todos'],
     queryFn: fetchTodos,
     onSuccess: (data) => {
-      console.log('✅ Fetched todos:', data);
+      console.log(' Fetched todos:', data);
     },
     onError: (err) => {
-      console.error('❌ Error fetching todos:', err);
+      console.error(' Error fetching todos:', err);
     }
   });
 
@@ -25,11 +25,11 @@ export default function TodoList() {
   const addTodoMutation = useMutation({
     mutationFn: addTodo,
     onSuccess: (data) => {
-      console.log('➕ Added:', data);
+      console.log(' Added:', data);
       queryClient.invalidateQueries({ queryKey: ['todos'] });
     },
     onError: (err) => {
-      console.error('❌ Add error:', err);
+      console.error(' Add error:', err);
     }
   });
 
@@ -37,11 +37,11 @@ export default function TodoList() {
   const deleteTodoMutation = useMutation({
     mutationFn: deleteTodo,
     onSuccess: (id) => {
-      console.log(`🗑️ Deleted todo with ID: ${id}`);
+      console.log(` Deleted todo with ID: ${id}`);
       queryClient.invalidateQueries({ queryKey: ['todos'] });
     },
     onError: (err) => {
-      console.error('❌ Delete error:', err);
+      console.error(' Delete error:', err);
     }
   });
 
@@ -49,11 +49,11 @@ export default function TodoList() {
   const updateTodoMutation = useMutation({
     mutationFn: updateTodo,
     onSuccess: (data) => {
-      console.log('✏️ Updated:', data);
+      console.log(' Updated:', data);
       queryClient.invalidateQueries({ queryKey: ['todos'] });
     },
     onError: (err) => {
-      console.error('❌ Update error:', err);
+      console.error(' Update error:', err);
     }
   });
 
